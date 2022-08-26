@@ -208,7 +208,7 @@ public class NginxService {
             BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String readString;
             while ((readString = br.readLine()) != null) {
-                sb.append(readString);
+                sb.append(readString).append(System.getProperty("line.separator"));
             }
 
             process.waitFor();
@@ -278,6 +278,6 @@ public class NginxService {
             return "결과 값이 없습니다. 명령어를 확인해주세요.";
         }
         // 없다면 명령어 실행
-        return cmdToString + "\n";
+        return cmdToString;
     }
 }
